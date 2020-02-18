@@ -46,7 +46,6 @@ require (
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/grpc-ecosystem/grpc-gateway v1.5.1 // indirect
 	github.com/hanchuanchuan/gh-ost v1.0.49-0.20200114083508-62a578b91654
-	github.com/hanchuanchuan/go-mysql v0.0.0-20200114082439-6d0d8d3a982e
 	github.com/imroc/req v0.2.3
 	github.com/jinzhu/gorm v1.9.2
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
@@ -71,7 +70,6 @@ require (
 	github.com/pingcap/kvproto v0.0.0-20181206061346-54cf0a0dfe55
 	github.com/pingcap/pd v2.1.0+incompatible
 	github.com/pingcap/tipb v0.0.0-20190428032612-535e1abaa330
-	github.com/pkg/errors v0.9.0 // indirect
 	github.com/prometheus/client_golang v0.9.0 // indirect
 	github.com/prometheus/client_model v0.0.0-20180712105110-5c3871d89910 // indirect
 	github.com/prometheus/common v0.0.0-20181020173914-7e9e6cabbd39 // indirect
@@ -79,6 +77,7 @@ require (
 	github.com/remyoudompheng/bigfft v0.0.0-20170806203942-52369c62f446 // indirect
 	github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24
 	github.com/siddontang/go-log v0.0.0-20180807004314-8d05993dda07
+	github.com/siddontang/go-mysql v0.0.0-20200120044259-a9add8d89449
 	github.com/sirupsen/logrus v1.4.2
 	github.com/soheilhy/cmux v0.1.4 // indirect
 	github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72
@@ -97,3 +96,7 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	vitess.io/vitess v2.1.1+incompatible
 )
+
+replace github.com/hanchuanchuan/gh-ost v1.0.49-0.20200114083508-62a578b91654 => github.com/jianhaiqing/gh-ost v1.0.49-0.20200218104430-05b47aeda458
+
+replace github.com/siddontang/go-mysql v0.0.0-20200120044259-a9add8d89449 => github.com/jianhaiqing/go-mysql v0.0.0-20200218095034-ce3fdd5956f8
