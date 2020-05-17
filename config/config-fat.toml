@@ -1,0 +1,201 @@
+# IP地址
+host = "0.0.0.0"
+
+# 端口
+port = 4000
+
+# TiDB数据库目录
+path = "/Users/jianhaiqing/tidb"
+
+[log]
+# 日志级别: debug, info, warn, error, fatal.
+level = "debug"
+
+# 日志格式, one of json, text, console.
+format = "text"
+
+# 禁用时间戳输出
+disable-timestamp = false
+
+# 日志文件
+[log.file]
+# 日志文件名
+filename = "/Users/jianhaiqing/tidb.log"
+
+# 日志文件的最大上限(MB)
+max-size = 300
+
+# Max日志文件的保存天数，默认值 `0`，即不清理
+max-days = 0
+
+# 要保留的最大旧日志文件数，默认值 `0`，即不清理
+max-backups = 0
+
+# 日志轮询，默认值 `true`，即开启
+log-rotate = true
+
+[inc]
+
+
+check_timestamp_count = true
+check_table_comment = false
+check_column_comment = false
+enable_set_charset = true
+
+# 审核列类型变更
+check_column_type_change = true
+
+# 安全更新是否开启(mysql自身的功能).
+# -1 表示不做操作,基于远端数据库 [默认值]
+# 0  表示关闭安全更新
+# 1  表示开启安全更新
+sql_safe_updates = -1
+
+support_charset = "utf8,utf8mb4"
+
+lang = "en-US"
+
+# 检查标识符是否正确,规则是[a-z,A-Z,0-9,_]
+check_identifier = true
+
+# 建表时，如果没有主键，则报错
+check_primary_key = true
+
+
+# 自增列是不是要为无符号型
+enable_autoincrement_unsigned = false
+
+# 是否允许删除数据库
+enable_drop_database = true
+
+# 是否允许删除表
+enable_drop_table = true
+
+# 是不是支持enum,set,bit数据类型
+enable_enum_set_bit = false
+
+# 查在SQL语句中，是不是有标识符被写成MySQL的关键字，默认值为报警
+enable_identifer_keyword = true
+
+# 设置是否允许json类型字段，包括建表、修改列、新增列操作
+enable_json_type = true
+
+# 建表指定的存储引擎不为Innodb，不报错
+enable_not_innodb = false
+
+# 创建或者新增列时如果列为NULL，是不是报错
+enable_nullable = true
+
+# 创建索引时是否允许空索引名
+enable_null_index_name = false
+
+# 是不是支持分区表
+enable_partition_table = true
+
+# 一个索引最多可指定的列数
+max_key_parts = 5
+
+# 单表允许的最大索引数
+max_keys = 10
+
+# 当update/delete预估受影响行数超出设置值时警告
+max_update_rows = 10000
+
+# 在多个改同一个表的语句出现是，报错，提示合成一个
+merge_alter_table = true
+
+
+
+# 全量日志
+general_log = true
+
+[osc]
+
+# 用来设置在arkit返回结果集中，对于原来OSC在执行过程的标准输出信息是不是要打印到结果集对应的错误信息列中，
+# 如果设置为1，就不打印，如果设置为0，就打印。而如果出现了错误，则都会打印。默认值：OFF
+osc_print_none = false
+
+# 对应参数pt-online-schema-change中的参数--print。默认值：OFF
+osc_print_sql = false
+
+# 全局的OSC开关，默认是打开的，如果想要关闭则设置为OFF，这样就会直接修改。默认值：OFF
+osc_on = true
+
+# 这个参数实际上是一个OSC开关，如果设置为0，则全部ALTER语句都使用OSC方式，
+# 如果设置为非0，则当这个表占用空间大小大于这个值时才使用OSC方式。
+# 单位为M，这个表大小的计算方式是通过语句
+# select (DATA_LENGTH + INDEX_LENGTH)/1024/1024 from information_schema.tables
+# where table_schema = 'dbname' and table_name = 'tablename' 来实现的。默认值：16
+# [0-1048576]
+osc_min_table_size = 16
+
+# 对应参数pt-online-schema-change中的参数alter-foreign-keys-method，具体意义可以参考OSC官方手册。默认值：none
+# [auto | none | rebuild_constraints | drop_swap]
+osc_alter_foreign_keys_method = "rebuild_constraints"
+
+# 对应参数pt-online-schema-change中的参数recursion_method，具体意义可以参考OSC官方手册。默认值：processlist
+# [processlist | hosts | none]
+osc_recursion_method = "none"
+
+# 对应参数pt-online-schema-change中的参数--max-lag。默认值：3
+osc_max_lag = 3
+
+# 对应参数pt-online-schema-change中的参数--[no]check-alter。默认值：ON
+osc_check_alter = false
+
+# 对应参数pt-online-schema-change中的参数--[no]check-replication-filters。默认值：ON
+osc_check_replication_filters = false
+
+# 对应参数pt-online-schema-change中的参数--[no]drop-old-table。默认值：ON
+osc_drop_old_table = true
+
+# 对应参数pt-online-schema-change中的参数--[no]drop-new-table。默认值：ON
+osc_drop_new_table = true
+
+# 对应参数pt-online-schema-change中的参数--max-load中的thread_running部分。默认值：80
+osc_max_thread_running = 100
+
+# 对应参数pt-online-schema-change中的参数--max-load中的thread_connected部分。默认值：1000
+osc_max_thread_connected = 1100
+
+# 对应参数pt-online-schema-change中的参数--critical-load中的thread_running部分。默认值：80
+osc_critical_thread_running = 120
+
+# 对应参数pt-online-schema-change中的参数--critical-load中的thread_connected部分。默认值：1000
+osc_critical_thread_connected = 1300
+
+# 对应参数pt-online-schema-change中的参数--chunk-time。默认值：1
+osc_chunk_time = 1.0
+
+# 对应参数pt-online-schema-change中的参数--chunk-size-limit。默认值：4
+osc_chunk_size_limit = 4
+
+# 对应参数pt-online-schema-change中的参数--chunk-size。默认值：1000
+osc_chunk_size = 3000
+
+# 对应参数pt-online-schema-change中的参数--check-interval，意义是Sleep time between checks for --max-lag。默认值：5
+osc_check_interval = 5
+
+
+
+osc_bin_dir = "/usr/bin"
+
+
+[ghost]
+
+ghost_on = true
+ghost_allow_on_master = true
+ghost_assume_rbr = true
+ghost_chunk_size = 5000
+ghost_concurrent_rowcount = true
+ghost_exact_rowcount = true
+ghost_cut_over = "atomic"
+ghost_cut_over_lock_timeout_seconds = 3
+ghost_default_retries = 60
+ghost_heartbeat_interval_millis = 500
+ghost_max_lag_millis = 1500
+ghost_approve_renamed_columns = true
+ghost_exponential_backoff_max_interval = 64
+ghost_dml_batch_size = 50
+ghost_ok_to_drop_table = true
+ghost_skip_foreign_key_checks = false

@@ -1,0 +1,12 @@
+FROM registry.gz.cvte.cn/percona/pt-tools:3.0
+
+WORKDIR /app
+
+ADD goInception.linux goInception
+
+ADD start.sh start.sh
+
+RUN chmod +x goInception start.sh
+
+CMD ["bash", "-c", "/app/start.sh"]
+

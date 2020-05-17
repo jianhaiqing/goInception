@@ -1,0 +1,7 @@
+FROM registry.gz.cvte.cn/library/centos
+
+RUN yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm -y && yum install percona-toolkit -y
+
+CMD ["bash"]
+
+
