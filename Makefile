@@ -274,9 +274,7 @@ release:
 	@for GOOS in darwin linux; do \
 		for GOARCH in amd64; do \
 			echo "Building $${GOOS}-$${GOARCH} ..."; \
-			GOOS=$${GOOS} GOARCH=amd64 $(GOBUILD) -ldflags '-s -w $(LDFLAGS)'  -o goInception tidb-server/main.go; \
-			tar -czf release/goInception-$${GOOS}-amd64-${VERSION}.tar.gz goInception config/config.toml.default; \
-			rm -f goInception; \
+			GOOS=$${GOOS} GOARCH=amd64 $(GOBUILD) -ldflags '-s -w $(LDFLAGS)'  -o goInception.$${GOOS} tidb-server/main.go; \
 		done ;\
 	done
 
